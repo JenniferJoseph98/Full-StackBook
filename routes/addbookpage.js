@@ -3,9 +3,9 @@ const Bookmodel = require("../model/bookmodel");
 addBook.post("/addbook", async (req, res) => {
   try {
     console.log(req.body.bookdetails);
-    const { bookdetails } = req.body;
+
     console.log(bookdetails);
-    const book = await Bookmodel.create(bookdetails);
+    const book = await Bookmodel.create(req.body);
     res.send(book);
   } catch (error) {
     console.log(error);
